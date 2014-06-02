@@ -15,7 +15,7 @@ class JobDaoDoctrineImpl implements JobDao
     }    
     
     protected function getRepository(){
-        return $this->getEntityManager()->getRepository('Example1JobBundle:Job')
+        return $this->getEntityManager()->getRepository('Example1JobBundle:Job');
     }
     
     public function getJobs(){
@@ -23,7 +23,7 @@ class JobDaoDoctrineImpl implements JobDao
     }
     
     public function find($id){
-        reuturn $this->getRepository()->find($id);
+        return $this->getRepository()->find($id);
     }
     
     public function createJob(Job $job){
