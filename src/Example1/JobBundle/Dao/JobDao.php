@@ -4,7 +4,6 @@ namespace Example1\JobBundle\Dao;
 use Example1\JobBundle\Entity\Job;
 
 interface JobDao{
-    
     /**
      * @return Job[]
      */
