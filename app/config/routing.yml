@@ -1,0 +1,8 @@
+example1_job:
+    resource: "@Example1JobBundle/Resources/config/routing.yml"
+    prefix:   /
+
+example1_hello:
+    resource: "@Example1HelloBundle/Resources/config/routing.yml"
+    prefix:   /
+

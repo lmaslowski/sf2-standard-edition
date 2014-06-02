@@ -1,0 +1,7 @@
+parameters:
+#    example1_hello.example.class: Example1\HelloBundle\Example
+
+services:
+#    example1_hello.example:
+#        class: %example1_hello.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
