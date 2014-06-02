@@ -1,20 +1,28 @@
 <?php
 namespace Example1\JobBundle\Dao;
 
+use Example1\JobBundle\Dao\JobDao;
+use Example1\JobBundle\Entity\Job;
+
 class JobDaoDoctrineImpl implements JobDao
 {
-    protected $entityManager;
-    protected $repository;
+    public $entityManager;
+    public $repository;
     
-    public function JobDaoDoctrineImpl(\Doctrine\ORM\EntityManager $entityManager){
+    public function __construct(\Doctrine\ORM\EntityManager $entityManager = null){
         $this->entityManager = $entityManager;
     }
 
-    protected function getEntityManager(){
+    public function setEntityManager(\Doctrine\ORM\EntityManager $entityManager){
+        $this->entityManager = $entityManager;
+    }
+    
+    
+    public function getEntityManager(){
         return $this->entityManager;
     }    
     
-    protected function getRepository(){
+    public function getRepository(){
         return $this->getEntityManager()->getRepository('Example1JobBundle:Job');
     }
     
@@ -34,7 +42,7 @@ class JobDaoDoctrineImpl implements JobDao
     
     public function updateJob(Job $job){
         $this->getEntityManager()->persist(job);
-        $this->getEntityManager()->flush();
+        $this->getEntityManaeger()->flush();
         return $job;
     }
     

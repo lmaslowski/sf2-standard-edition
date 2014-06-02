@@ -9,15 +9,9 @@ interface JobDao{
      */
     public function getJobs();
 
-    /**
-     * 
-     * @param Job $job
-     * @return void
-     */
     public function createJob(Job $job);
     
     /**
-     * 
      * @param Job $job
      * @return void
      */
