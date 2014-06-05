@@ -4,8 +4,8 @@ use Example1\JobBundle\Service\JobService;
 use Example1\JobBundle\Dao\JobDao;
 use Example1\JobBundle\Entity\Job;
 class JobServiceImpl implements JobService{
-    
     private $jobDao;
+    
     public function __construct(JobDao $jobDao){
         $this->jobDao = $jobDao;
     }
