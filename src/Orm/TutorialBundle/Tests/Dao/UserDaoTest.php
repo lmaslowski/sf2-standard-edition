@@ -15,6 +15,7 @@ class UserDaoTest extends KernelTestCase{
     }
 
     public function testCreate(){
+        
         //given
         $userDao = new UserDaoImpl($this->em );
         $user = new User();
@@ -28,8 +29,8 @@ class UserDaoTest extends KernelTestCase{
     }
     
     /**
-     * @todo słaby test
-     */
+     * @depends testCreate
+    */
     public function testGetAll(){
         //given
         $userDao = new UserDaoImpl($this->em );
@@ -40,5 +41,15 @@ class UserDaoTest extends KernelTestCase{
         //then
         $this->assertEquals($userList[0]->getName(), 'Okok_1');
         
+        //clean
+        $this->clearTableUser();
+    }
+    
+    private function clearTableUser(){
+        $conn = $this->em->getConnection();
+        $result = $conn->query("DELETE FROM user");
+    }
+    
+    public function tearDown(){
     }
 }
