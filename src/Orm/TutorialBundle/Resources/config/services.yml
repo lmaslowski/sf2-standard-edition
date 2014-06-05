@@ -1,0 +1,7 @@
+parameters:
+#    orm_tutorial.example.class: Orm\TutorialBundle\Example
+
+services:
+#    orm_tutorial.example:
+#        class: %orm_tutorial.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

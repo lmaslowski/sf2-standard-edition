@@ -1,3 +1,7 @@
+orm_tutorial:
+    resource: "@OrmTutorialBundle/Resources/config/routing.yml"
+    prefix:   /
+
 example1_job:
     resource: "@Example1JobBundle/Resources/config/routing.yml"
     prefix:   /
