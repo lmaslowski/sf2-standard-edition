@@ -2,7 +2,10 @@
 namespace Orm\TutorialBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
+use Orm\TutorialBundle\Entity\User as User;
+use Orm\TutorialBundle\Entity\Product as Product;
 /**
  * @ORM\Entity
  * @ORM\Table (name="bug")
@@ -33,8 +36,46 @@ class Bug{
     * @ORM\Column(type="string")
     * @var unknown
     */   
-    protected $statius;
+    protected $status;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="User",inversedBy="assignedBugs")
+     * @var unknown
+     */
+    protected $engineer;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="User",inversedBy="reportedBugs")
+     * @var unknown
+     */
+    protected $reporter;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Product")
+     */
+    protected $products;
+
+    public function __construct(){
+        $this->products = new ArrayCollection();
+        
+    }
+    
+    public function setEngineer($enginner){
+        $this->engineer = $enginner;
+    }
+    
+    public function getEnginner(){
+        return $this->enginner;
+    }
+    
+    public function setReporter($reporter){
+        $this->reporter = $reporter;
+    }
+    
+    public function getReporter(){
+        return $this->reporter;
+    }
+    
     /**
      * Get id
      *
@@ -97,9 +138,9 @@ class Bug{
      * @param string $statius
      * @return Bug
      */
-    public function setStatius($statius)
+    public function setStatus($statius)
     {
-        $this->statius = $statius;
+        $this->status = $statius;
 
         return $this;
     }
@@ -109,8 +150,8 @@ class Bug{
      *
      * @return string 
      */
-    public function getStatius()
+    public function getStatus()
     {
-        return $this->statius;
+        return $this->status;
     }
 }

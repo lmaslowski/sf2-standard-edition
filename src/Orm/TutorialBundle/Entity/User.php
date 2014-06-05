@@ -2,6 +2,7 @@
 namespace Orm\TutorialBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -20,6 +21,31 @@ class User{
      */
     protected $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Bug", mappedBy="reporter")
+     */
+    protected $reportedBugs ;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Bug", mappedBy="enginner")
+     */
+    protected $assignedBugs;
+    
+    public function __construct(){
+        $this->reportedBugs = new ArrayCollection();
+        $this->assingedBugs = new ArrayCollection();
+    }
+    
+    public function addReportedBug($bug)
+    {
+        $this->reportedBugs[] = $bug;
+    }
+    
+    public function assignedToBug($bug)
+    {
+        $this->assignedBugs[] = $bug;
+    }
+    
     /**
      * Get id
      *
