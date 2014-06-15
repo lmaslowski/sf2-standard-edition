@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
- * @ORM\Table (name="user")
+ * @ORM\Table (name="user_orm_tutorial")
  */
 class User{
     /**

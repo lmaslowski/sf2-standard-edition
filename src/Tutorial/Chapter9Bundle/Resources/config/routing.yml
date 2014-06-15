@@ -1,0 +1,3 @@
+tutorial_chapter9_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: TutorialChapter9Bundle:Default:index }
